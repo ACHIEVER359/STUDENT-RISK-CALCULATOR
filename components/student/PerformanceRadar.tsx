@@ -28,11 +28,20 @@ export default function PerformanceRadar({ student, classAvg }: RadarChartProps)
   ];
 
   return (
-    <div className="h-80">
-      <ResponsiveContainer width="100%" height="100%">
-        <RechartsRadarChart cx="50%" cy="50%" outerRadius="70%">
+
+    <div className="w-full min-w-0 h-80">
+      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={200}>
+        <RechartsRadarChart
+          data={data}
+          cx="50%"
+          cy="50%"
+          outerRadius="70%"
+        >
           <PolarGrid stroke="#e2e8f0" />
-          <PolarAngleAxis dataKey="subject" tick={{ fill: '#64748b', fontSize: 12 }} />
+          <PolarAngleAxis
+            dataKey="subject"
+            tick={{ fill: '#64748b', fontSize: 12 }}
+          />
           <Radar
             name="Student"
             dataKey="student"
@@ -54,5 +63,6 @@ export default function PerformanceRadar({ student, classAvg }: RadarChartProps)
         </RechartsRadarChart>
       </ResponsiveContainer>
     </div>
+
   );
 }

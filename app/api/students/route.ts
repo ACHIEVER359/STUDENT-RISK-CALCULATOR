@@ -31,7 +31,7 @@ interface RawStudent {
 
 export async function GET() {
   try {
-    const csvPath = path.join(process.cwd(), '..', 'components', 'Lumina_rows.csv');
+    const csvPath = path.join(process.cwd(), '..', 'Lumina_rows.csv');
     const csvFile = fs.readFileSync(csvPath, 'utf-8');
 
     const result = Papa.parse<RawStudent>(csvFile, {
@@ -71,3 +71,6 @@ export async function GET() {
     return NextResponse.json({ error: 'Failed to load students' }, { status: 500 });
   }
 }
+
+
+
